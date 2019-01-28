@@ -13,9 +13,9 @@ export default class Product extends Component {
       <Wrapper className="col-md-6 col-lg-4 text-center mb-2">
   
      <div className="card">
-      <div className="img-container p-5" onClick={console.log('cliked me')}>
+      <div className="img-container p-5" onClick={()=>console.log('cliked me')}>
       <Link to="/details">
-      <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="card-img-top" alt=""/>
+      <img src={img} className="card-img-top" alt=""/>
       </Link>
 
       <button className="cart-btn mt-3" disabled={inCart ? true : false }
