@@ -10,9 +10,16 @@ export default class Details extends Component {
   render() {
     return (
       <ProductConsumer>
-      {(value)=>{
-  const {id,title,img,price,company,info,inCart} = value.detailProduct
-   //console.log(value)
+      {value=>{
+  const {id,
+    title,
+    img,
+    price,
+    company,
+    info,
+    inCart
+  } = value.detailProduct
+  // console.log(id)
         return(
           <div className="container">
            <div className="row">
@@ -46,7 +53,12 @@ export default class Details extends Component {
                Product
               </ButtonContainer>
               </Link>
-              <ButtonContainer cart onClick={()=>value.addcart(id)} disabled={inCart ? true: false }>
+              <ButtonContainer cart onClick={()=>{
+                value.addcart(id)
+                value.openModal(id)
+              }
+          
+              } disabled={inCart ? true: false }>
               {inCart ? "inCart" :"Add to cart"}
              </ButtonContainer>
              
@@ -69,6 +81,9 @@ export const ButtonContainer=styled.button`
  background:transparent;
  border:6px solid var(--lightBleu);
  border-color:${props=>
+  props.cart ? "var(--mainYellow)" :"var(--lightBleu)"
+};
+color:${props=>
   props.cart ? "var(--mainYellow)" :"var(--lightBleu)"
 };
  padding:.3rem;

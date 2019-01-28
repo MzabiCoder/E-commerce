@@ -7,23 +7,40 @@ import PropTypes from 'prop-types';
 
 export default class Product extends Component {
   render() {
-     const {title,img,price,inCart}=this.props.product
+     const {id,title,img,price,inCart}=this.props.product
    //console.log(this.props)
     return (
+
+
       <Wrapper className="col-md-6 col-lg-4 text-center mb-2">
   
      <div className="card">
-      <div className="img-container p-5" onClick={()=>console.log('cliked me')}>
-      <Link to="/details">
-      <img src={img} className="card-img-top" alt=""/>
-      </Link>
+     <ProductConsumer>
+    {value=>(
+     //  
+       //const {handledetail,addcart} = value
+      
+        <div className="img-container p-5" onClick={()=>value.handledetail(id)}>
+        <Link to="/details">
+        <img src={img} className="card-img-top" alt=""/>
+        </Link>
+  
+        <button className="cart-btn mt-3" disabled={inCart ? true : false }
+        onClick={()=>{
+          value.addcart(id)
+          value.openModal(id)
+        }}
 
-      <button className="cart-btn mt-3" disabled={inCart ? true : false }
-      onClick={()=>{console.log('added to the cart')}}
-      >
-      {  inCart ? (<p className="text-capitalize mb-0" disabled >In Cart</p>) : (<i className="fas fa-cart-plus"></i>)  }
-      </button>
-      </div>
+        >
+        {  inCart ? (<p className="text-capitalize mb-0" disabled >In Cart</p>) : (<i className="fas fa-cart-plus"></i>)  }
+        </button>
+        </div>
+      
+    )}
+   
+     
+      </ProductConsumer>
+
       <div className="card-footer d-flex flex justify-content-between">
       <p className="align-self-center mb-0">
       {title}
@@ -35,6 +52,11 @@ export default class Product extends Component {
      </div>
     
       </Wrapper>
+
+
+
+
+
     )
   }
 }

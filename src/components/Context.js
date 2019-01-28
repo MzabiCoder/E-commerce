@@ -9,7 +9,10 @@ const ProductContext=React.createContext();
 
     state={
         products:[],
-        detailProduct
+        detailProduct,
+        cart:[],
+        modalOpen:false,
+        mdalProduct:detailProduct
     }
 
     componentDidMount(){
@@ -41,20 +44,71 @@ const ProductContext=React.createContext();
 
 //  }
 
+  gettem=(id)=>{
+  
+     const product=this.state.products.find(item=>item.id===id)
+     return product
 
-    handledetail=()=>{
-        console.log('hellow from handle details')
+  }
+
+    handledetail=(id)=>{
+      
+      const product=this.gettem(id)
+      console.log(product)
+      this.setState({
+        detailProduct:product
+      })
+
     }
+
+    
+
     addcart=(id)=>{
-        console.log(id)
+      let temp=[...this.state.products]
+      const index = temp.indexOf(this.gettem(id))
+      // console.log(index);
+      const product=temp[index];
+    //  console.log(product);
+
+      product.inCart=!product.inCart
+      product.count=1
+      product.total=index.price
+
+      this.setState({
+        products:temp,
+        cart:[...this.state.cart,product]
+      },()=>{
+      // console.log(this.state)
+      })
+
+   
+        
     }
+
+    openModal=id=>{
+      const product=this.gettem(id)
+      this.setState({
+        modalOpen:true,
+        dalProduct:product
+      })
+    }
+
+
+closeModal=()=>{
+ this.setState({
+  modalOpen:true,
+ })
+}
     
   render() {
     return (
       <ProductContext.Provider value={
         {...this.state,
         handledetail:this.handledetail,
-        addcart:this.addcart
+        addcart:this.addcart,
+        openModal:this.openModal,
+        closeModal:this.closeModal
+
         }
       }>
         {this.props.children}
