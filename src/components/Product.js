@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 export default class Product extends Component {
   render() {
      const {title,img,price,inCart}=this.props.product
-   console.log(this.props)
+   //console.log(this.props)
     return (
       <Wrapper className="col-md-6 col-lg-4 text-center mb-2">
   

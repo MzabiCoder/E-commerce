@@ -45,8 +45,8 @@ const ProductContext=React.createContext();
     handledetail=()=>{
         console.log('hellow from handle details')
     }
-    addcart=()=>{
-        console.log('hellow from addcart')
+    addcart=(id)=>{
+        console.log(id)
     }
     
   render() {
