@@ -1,32 +1,29 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+:root{
+  --mainBlue:#2a2a72;
+  --lightBleu:#009ffd;
+  --mainWhite:#f3f3f3;
+  --mainDark:#232528;
+  --mainYellow:#ffa400;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+body{
+  background: var(--mainWhite) !important;
+  color:var(--mainDark) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.text-title{
+  font-family: 'Indie Flower', cursive;
+  letter-spacing: .3rem;
+   text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.text-bleu{
+  color:var(--mainBlue)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text-bright{
+  color:var(--lightBleu)
 }
