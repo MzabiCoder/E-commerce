@@ -12,7 +12,10 @@ const ProductContext=React.createContext();
         detailProduct,
         cart:[],
         modalOpen:false,
-        mdalProduct:detailProduct
+        mdalProduct:detailProduct,
+        cartSubtotal:0,
+        cartTax:0,
+        cartTotal:0
     }
 
     componentDidMount(){
@@ -100,6 +103,21 @@ closeModal=()=>{
   modalOpen:false,
  })
 }
+
+increment=id=>{
+  console.log('this is increment')
+}
+decrement=id=>{
+  console.log('this is increment')
+}
+
+removeItem=id=>{
+  console.log('item removed')
+}
+
+clearCart=id=>{
+  console.log('cart was cleared')
+}
     
   render() {
     return (
@@ -108,7 +126,11 @@ closeModal=()=>{
         handledetail:this.handledetail,
         addcart:this.addcart,
         openModal:this.openModal,
-        closeModal:this.closeModal
+        closeModal:this.closeModal,
+        increment:this.increment,
+        decrement:this.decrement,
+        clearCart:this.clearCart,
+        removeItem:this.removeItem
 
         }
       }>
