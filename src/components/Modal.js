@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import {ProductConsumer} from './Context'
-import {buttoncontainer} from './button'
 import {Link} from 'react-router-dom'
 
 export default class Modal extends Component {
@@ -11,20 +10,40 @@ export default class Modal extends Component {
         <ProductConsumer>
          {value=>{
        console.log(value)
-        const {openModal,closeModal}=value
+        const {modalOpen,closeModal}=value
         const {img,title,price}=value.mdalProduct
-        if (!openModal){
-            return null
+        if (!modalOpen){
+            return null;
 
         }else {
             return (
                <ModalContainer>
                <div className="conatiner">
                <div className="row">
-               <div className="col-8-mx col-md-6 col-lg-4 text-center text-capitalize" id="modal">
+               <div className="col-md-6 col-lg-12 mx-auto text-center text-capitalize p-5" id="modal">
                <h5>item Added to the cart</h5>
-               
-               </div></div>
+               <img src={img} alt="" className="img-fluid"/>
+               <h5>{title}</h5>
+               <h5 className="text-muted">
+               price : $ <span>{price}</span>
+               </h5>
+               <Link to="/">
+               <ButtonContainer onClick={()=>{
+                closeModal()
+               }}>
+               Continue Shopping
+               </ButtonContainer>
+               <Link to="/cart">
+               <ButtonContainer onClick={()=>{
+                closeModal()
+
+               }}>
+              Go to cart
+               </ButtonContainer>
+               </Link>
+               </Link>
+               </div>
+               </div>
                </div>
 
                </ModalContainer>
@@ -51,7 +70,30 @@ align-items:center;
 text-align:center;
 height:100vh;
 background:rgba(0,0,0,0.3);
+transition:all 1s linear;
+
+#modal{
+   background:white;
+   transition:all 1s linear;
+}
+`
+export const ButtonContainer=styled.button`
+ text-transform : uppercase;
+ font-seize:1.4rem;
+ background:transparent;
+ border:6px solid var(--lightBleu);
+ padding:.3rem;
+ margin-right:1rem;
+ font-weight:bold;
+ cursor:pointer;
+ transition: all .5s ease-in-out;
+ :hover{
+   background:var(--mainBlue);
+   color:white;
+ }
+
+ :focus{
+   outline:none;
+ }
  
-
-
 `

@@ -88,15 +88,16 @@ const ProductContext=React.createContext();
     openModal=id=>{
       const product=this.gettem(id)
       this.setState({
+       
         modalOpen:true,
-        dalProduct:product
+        mdalProduct:product
       })
     }
 
 
 closeModal=()=>{
  this.setState({
-  modalOpen:true,
+  modalOpen:false,
  })
 }
     
