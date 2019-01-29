@@ -9,6 +9,7 @@ import Cart from './components/Cart'
 import {Switch,Route} from 'react-router-dom'
 import Modal from './components/Modal'
 
+
 class App extends Component {
   render() {
     return (

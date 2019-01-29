@@ -27,3 +27,48 @@ body{
 .text-bright{
   color:var(--lightBleu)
 }
+
+#btn{
+text-transform: capitalize;
+font-size: .7rem!important;
+color:var(--mainDark);
+border-radius: 0!important;
+border:  1px solid black;
+padding: .1rem 1rem;
+transition: all .7s ease-in-out
+}
+
+#btn:hover{
+  background-color: black;
+  color:white;
+}
+
+#btn2{
+  text-transform: capitalize;
+  font-size: .7rem!important;
+  color:var(--mainDark);
+  border-radius: 0!important;
+  border:  1px solid black;
+  padding: .1rem 1rem;
+  transition: all .7s ease-in-out
+  }
+  
+  #btn2:hover{
+    background-color: black;
+    color:white;
+  }
+
+  #bt3{
+    text-transform: capitalize;
+    font-size: .7rem!important;
+    color:var(--mainDark);
+    border-radius: 0!important;
+    border:  1px solid black;
+    padding: .1rem 1rem;
+    transition: all .7s ease-in-out
+    }
+    
+    #bt3:hover{
+      background-color: black;
+      color:white;
+    }

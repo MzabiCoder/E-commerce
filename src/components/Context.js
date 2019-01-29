@@ -57,7 +57,7 @@ const ProductContext=React.createContext();
     handledetail=(id)=>{
       
       const product=this.gettem(id)
-      console.log(product)
+     // console.log(product)
       this.setState({
         detailProduct:product
       })
@@ -108,7 +108,7 @@ increment=id=>{
   console.log('this is increment')
 }
 decrement=id=>{
-  console.log('this is increment')
+  console.log('this is decrement')
 }
 
 removeItem=id=>{
