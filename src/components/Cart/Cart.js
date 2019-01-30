@@ -7,6 +7,7 @@ import CartList from './CartList'
 import Total from './Total'
 
 
+
 export default class Cart extends Component {
   render() {
     return (
@@ -22,7 +23,7 @@ export default class Cart extends Component {
             <TItle name="Your" title="Cart"/>
             <CartColumn />
            <CartList value={value}/>
-           <Total value={value}/>
+           <Total value={value} history={this.props.history}/>
            </React.Fragment>
           )
          
