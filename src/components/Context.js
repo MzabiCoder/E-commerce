@@ -15,7 +15,8 @@ const ProductContext=React.createContext();
         mdalProduct:detailProduct,
         cartSubtotal:0,
         cartTax:0,
-        cartTotal:0
+        cartTotal:0,
+        conter:true
     }
 
     componentDidMount(){
@@ -144,8 +145,9 @@ increment=id=>{
   
 }
 decrement=id=>{
-  console.log('this is decrement')
 
+   
+    
   let tempC=[...this.state.cart]
   const selectedP=tempC.find(item=>item.id===id)
 
@@ -153,14 +155,16 @@ decrement=id=>{
   const product=tempC[index]
      
   product.count=product.count-1
-  product.total=product.price*selectedP.count
-
+   if (product.count==0){
+    this.removeItem(id)
+   }else{
+    product.total=product.price*selectedP.count
+    
   this.setState({
     cart:tempC
   },()=>this.addTotal())
   
-
-}
+   }}
 
 removeItem=(id)=>{
 
