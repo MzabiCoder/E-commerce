@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function CartItem({item,value}) {
     const {id,img,price,total,count,title}=item
-    const {increment,decrement,removeItem}=value
-    console.log(item)
+    const {increment,decrement,removeItem,cart}=value
+   // console.log(item)
   return (
     <React.Fragment>
      <div className="row text-center">

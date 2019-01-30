@@ -129,17 +129,75 @@ closeModal=()=>{
 
 increment=id=>{
   console.log('this is increment')
+ let tempC=[...this.state.cart]
+  const selectedP=tempC.find(item=>item.id===id)
+
+  const index=tempC.indexOf(selectedP)
+  const product=tempC[index]
+     
+  product.count=product.count+1
+  product.total=product.price*selectedP.count
+
+  this.setState({
+    cart:tempC
+  },()=>this.addTotal())
+  
 }
 decrement=id=>{
   console.log('this is decrement')
+
+  let tempC=[...this.state.cart]
+  const selectedP=tempC.find(item=>item.id===id)
+
+  const index=tempC.indexOf(selectedP)
+  const product=tempC[index]
+     
+  product.count=product.count-1
+  product.total=product.price*selectedP.count
+
+  this.setState({
+    cart:tempC
+  },()=>this.addTotal())
+  
+
 }
 
-removeItem=id=>{
-  console.log('item removed')
+removeItem=(id)=>{
+
+  let tempC=[...this.state.cart]
+  let tempP=[...this.state.products]
+   tempC=tempC.filter(val=>val.id!==id)
+
+   const index = tempP.indexOf(this.gettem(id));
+   const product=tempP[index];
+   product.inCart=false
+   product.count=0
+   product.total=0
+
+
+    this.setState({
+      cart:[...tempC]
+    },()=>{
+      this.addTotal()
+    })
 }
 
-clearCart=id=>{
-  console.log('cart was cleared')
+clearCart=()=>{
+  console.log('cart was cleared');
+  let temp=[...this.state.products]
+   temp.map(val=>{
+     return val.inCart=false
+    })
+
+  this.setState({
+      
+      product:temp,
+      cart:[],
+      cartSubtotal:0,
+      cartTax:0,
+      cartTotal:0
+
+  })
 }
     
   render() {
