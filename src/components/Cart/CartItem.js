@@ -3,7 +3,7 @@ import React from 'react'
 export default function CartItem({item,value}) {
     const {id,img,price,total,count,title}=item
     const {increment,decrement,removeItem}=value
-    //console.log(removeItem())
+    console.log(item)
   return (
     <React.Fragment>
      <div className="row text-center">
@@ -51,9 +51,8 @@ export default function CartItem({item,value}) {
      </div>
 
     <div className="col-10 mx-auto col-lg-2">
-    <strong>item total: $ {total}</strong>      
-
-     </div>
+    <strong>item total: $</strong> {total}      
+    </div>
 
 
      </div>

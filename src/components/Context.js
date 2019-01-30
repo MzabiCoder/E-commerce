@@ -75,13 +75,15 @@ const ProductContext=React.createContext();
 
       product.inCart=!product.inCart
       product.count=1
-      product.total=index.price
+      let price=product.price
+      product.total=price
+      
 
       this.setState({
         products:temp,
         cart:[...this.state.cart,product]
       },()=>{
-      // console.log(this.state)
+        this.addTotal()
       })
 
    
@@ -96,6 +98,27 @@ const ProductContext=React.createContext();
         mdalProduct:product
       })
     }
+
+   addTotal=()=>{
+     let cartSubtotal=0;
+     this.state.cart.map(item=>{
+      cartSubtotal+=item.total
+
+     })
+
+     const tempTax=cartSubtotal*0.1;
+     const cartTax=parseFloat(tempTax.toFixed(2))
+     const cartTotal =cartSubtotal+cartTax;
+
+      this.setState({
+        cartSubtotal,
+        cartTax,
+        cartTotal
+
+      })
+    
+
+   } 
 
 
 closeModal=()=>{
