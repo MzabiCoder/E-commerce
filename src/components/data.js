@@ -10,7 +10,7 @@ export const storeProducts = [
       inCart: false,
       count: 0,
       total: 10
-    },
+    }, 
     {
       id: 2,
       title: "Samsung S7",
